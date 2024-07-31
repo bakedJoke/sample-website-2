@@ -51,6 +51,11 @@ a{
 .header .navbar .nav .nav_item{
     margin: 0 15px;
 }
+.header .navbar .nav .btn-primary{
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 25px;
+}
 @media (max-width : 1000px){
     .header .toggle{
         display: block;
@@ -118,6 +123,7 @@ a{
     border-radius: 30px;
     font-size: 20px;
     margin: 30px;
+    cursor: pointer;
 
 }
 .main .container .btn-secondary span{

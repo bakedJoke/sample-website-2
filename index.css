@@ -19,20 +19,12 @@ a {
 .header {
   width: 100%;
   height: 100px;
+  position: relative;
 }
 .header .toggle {
   display: none;
 }
-.toggle-dropdown {
-  position: absolute;
-  right: 0;
-  background-color: #f8f9fa;
-  padding: 10px 50px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transition: opacity 150ms ease-in-out;
-}
+
 .header .navbar {
   display: flex;
   justify-content: space-between;
@@ -59,11 +51,56 @@ a {
 }
 .header .navbar .nav .nav_item {
   margin: 0 15px;
+  position: relative;
+}
+.header .navbar .nav .nav-link::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #333;
+  width: 0%;
+  bottom: -5px;
+  left: 50%;
+  transform: translate(-50%);
+  transition: all 0.3s ease-in-out;
+}
+.header .navbar .nav .nav-link:hover::before{
+  width: 100%;
 }
 .header .navbar .nav .btn-primary {
   padding: 10px 20px;
   border: 1px solid black;
   border-radius: 25px;
+}
+.header .navbar .nav .btn-primary:hover {
+  background-color: black;
+  color: #ffff;
+}
+.toggle-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(20, 18, 18, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  width: 100%;
+  text-align: center;
+  height: 0;
+  transition: height .5s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.toggle-dropdown li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+.toggle-dropdown li a{
+  color: #f8f9fa;
 }
 @media (max-width: 1000px) {
   .header .toggle {
@@ -71,10 +108,10 @@ a {
     font-size: 20px;
     position: relative;
   }
-  .toggle > .toggle-button:focus + .toggle-dropdown {
-    opacity: 1;
+ 
+  .show_dropdown{
+    height: 200px;
   }
-
   .header .navbar .nav {
     display: none;
   }
@@ -128,6 +165,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  transition: box-shadow .3s ease-in-out;
+}
+.main .container .container_checkbox .row .col:hover {
+  box-shadow: 0px 5px 15px rgba(130, 127, 127, 0.5);
 }
 .main .container .btn-secondary {
   padding: 20px 60px;
@@ -139,8 +181,16 @@ a {
   margin: 30px;
   cursor: pointer;
 }
+.main .container .btn-secondary:hover {
+  background-color: #ffff;
+  border: 1px solid black;
+  color: black;
+}
 .main .container .btn-secondary span {
   color: #f8f9fad5;
+}
+.main .container .btn-secondary:hover span {
+  color: rgba(0, 0, 0, 0.739);
 }
 .main .container .main__benefits {
   display: flex;
@@ -188,6 +238,8 @@ a {
     padding: 0 5px;
   }
 }
+
+
 .footer {
   width: 100%;
   height: 150px;
@@ -200,13 +252,32 @@ a {
   margin: 0 auto;
   width: 90%;
   height: 100%;
-  flex-wrap: wrap;
   border-top: 1px solid rgba(0, 0, 0, 0.656);
   padding: 25px 0;
 }
-@media (max-width: 1000px) {
-  .footer .container .sponsors img {
-    height: 30px;
-    width: 30px;
-  }
+.footer .swiper{
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
+.footer .swiper .swiper-slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper .swiper-button-next, .swiper .swiper-button-prev{
+  color: #333;
+}
+.swiper .swiper-button-next:after,.swiper .swiper-button-prev:after{
+  font-size: 20px;
+}
+
+@media (max-width: 1000px) {
+ 
+}
+
+
+
+
+
